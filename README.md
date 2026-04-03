@@ -37,6 +37,10 @@ Um painel (dashboard) para gerir o aluguer e a devolução de jogos de tabuleiro
 Um jogo interativo onde o utilizador deve adivinhar um número gerado aleatoriamente pelo sistema.
 - **Conceitos:** Lógica condicional (if/else), limpeza de campos de formulário e a integração com bibliotecas externas (uso da API `ResponsiveVoice` para ditar os textos do ecrã, garantindo acessibilidade).
 
+### 7. 📝 Lista de Compras
+Uma aplicação para gestão de listas de supermercado, permitindo a organização de itens de forma dinâmica.
+- **Conceitos:** Modularização de código com ES6 Modules (`import`/`export`), criação dinâmica de elementos complexos no DOM, gestão de estados visuais (exibição de mensagens de lista vazia), manipulação de eventos de checkbox para estilização condicional e uso de `toLocaleDateString` para registo temporal dos itens.
+
 ---
 
 ## ⚙️ Como executar os projetos localmente
@@ -63,3 +67,4 @@ Como os projetos foram construídos com tecnologias web padrão, não é necess�
 - [Ver Sorteador de Números](https://gabrieldenti.github.io/projetos-javascript/sorteador-numeros/index.html)
 - [Ver AluGames](https://gabrieldenti.github.io/projetos-javascript/alugames/index.html)
 - [Ver Jogo do Número Secreto](https://gabrieldenti.github.io/projetos-javascript/numero-secreto/index.html)
+- [Ver Lista de Compras](https://gabrieldenti.github.io/projetos-javascript/lista-compras/index.html)
