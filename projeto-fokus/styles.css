@@ -232,7 +232,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* fim - toggle */
 
-dropdown-container {
+.dropdown-container {
     position: relative;
 }
 
@@ -464,6 +464,7 @@ dropdown-container {
     background-color: transparent;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: var(--azul-profundo);
     font-family: Montserrat;
     font-size: 1.8rem;
@@ -475,7 +476,7 @@ dropdown-container {
 
 .app__form-footer__button--confirm {
     border-radius: 3.2rem;
-    padding: 0.8rem 2.4rem;
+    padding: 0.8rem 2rem;
     color: #fff;
     background: var(--azul-profundo);
 }

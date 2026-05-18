@@ -55,6 +55,11 @@ const contagemRegressiva = () => {
     if(tempoEmSegundos <= 0){
         alerta.play();
         alert('Tempo esgotado!');
+        const focoAtivo = html.getAttribute('data-contexto') == 'foco';
+        if(focoAtivo){
+            const evento = new CustomEvent('FocoFinalizado'); //- cria um evento personalizado
+            document.dispatchEvent(evento); // -> dispara o evento personalizado para que outros componentes possam ouvir e reagir a ele.
+        }
         zerarContagem();
         return;
     }
