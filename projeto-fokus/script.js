@@ -20,6 +20,7 @@ const alerta = new Audio('./sons/beep.mp3');
 musica.loop = true;
 
 let tempoEmSegundos = 1500;
+let tempoOriginal = tempoEmSegundos;
 let intervaloId = null;
 
 
@@ -55,6 +56,8 @@ const contagemRegressiva = () => {
     if(tempoEmSegundos <= 0){
         alerta.play();
         alert('Tempo esgotado!');
+        tempoEmSegundos = tempoOriginal;
+        IniciarContagem();
         const focoAtivo = html.getAttribute('data-contexto') == 'foco';
         if(focoAtivo){
             const evento = new CustomEvent('FocoFinalizado'); //- cria um evento personalizado
@@ -81,7 +84,7 @@ function iniciarOuPausarContagem() {
 }
 
 function zerarContagem() {
-    clearInterval(intervaloId);
+    clearInterval(intervaloId); 
     btIniciarOuPausar.textContent = 'Começar';
     intervaloId = null;
     btImagemP.setAttribute('src', './imagens/play_arrow.png');
@@ -99,19 +102,22 @@ function IniciarContagem() {
 IniciarContagem();
 
 BtFoco.addEventListener('click' , () => {
-    tempoEmSegundos = 1500;
+    tempoOriginal = 1500;
+    tempoEmSegundos = tempoOriginal;
     alterarContexto('foco');
     BtFoco.classList.add('active');
 });
 
 BtDescanso.addEventListener('click' , () => {
-    tempoEmSegundos = 300;
+    tempoOriginal = 300;
+    tempoEmSegundos = tempoOriginal;
     alterarContexto('descanso-curto');
     BtDescanso.classList.add('active');
 });
 
 BtLongo.addEventListener('click' , () => {
-    tempoEmSegundos = 900;
+    tempoOriginal = 900;
+    tempoEmSegundos = tempoOriginal;
     alterarContexto('descanso-longo');
     BtLongo.classList.add('active');
 
