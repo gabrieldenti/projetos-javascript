@@ -55,6 +55,19 @@ const api = {
             console.log(error.message);
         }
     },
+    async buscarPensamentosPorBusca(busca){
+        try{
+            const resposta = await this.buscarPensamentos();
+
+            const pensamentosFiltrados = resposta.filter(pensamento => {
+                return pensamento.conteudo.toLowerCase().includes(busca.toLowerCase()) || pensamento.autoria.toLowerCase().includes(busca.toLowerCase());
+            });
+
+            return pensamentosFiltrados;
+        }catch(error){
+            console.log(error.message);
+        }
+    }
 
 }
 

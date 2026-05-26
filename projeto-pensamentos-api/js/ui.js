@@ -1,16 +1,22 @@
 import api from './api.js';
 
 const ui = {
-    async renderizarPensamentos(){
+    async renderizarPensamentos(pensamentosFiltrados = null){
         const listaPensamentos = document.getElementById('lista-pensamentos');
         listaPensamentos.innerHTML = '';
 
         try{
-            const pensamentos = await api.buscarPensamentos();
-            if(pensamentos.length === 0){
-                ui.muralVazio(pensamentos);
+            let pensamentosParaRenderizar = pensamentosFiltrados;
+            if(!pensamentosFiltrados){ 
+                pensamentosParaRenderizar = await api.buscarPensamentos();
             }else{
-                pensamentos.forEach(ui.adicionarPensamento);
+                pensamentosParaRenderizar = pensamentosFiltrados;
+            }
+            
+            if(pensamentosParaRenderizar.length === 0){
+                ui.muralVazio();
+            }else{
+                pensamentosParaRenderizar.forEach(ui.adicionarPensamento);
             }
 
         }catch(error){
@@ -86,10 +92,11 @@ const ui = {
         
     },
 
-    muralVazio(pensamentos){
+    muralVazio(){
 
         const sectionMural = document.getElementById('lista-pensamentos-container');
         const formulario = document.getElementById('form-container');
+        
 
         formulario.style.display = 'none';
 
