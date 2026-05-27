@@ -226,6 +226,12 @@ h2, h3 {
   margin: 40px 0;
 }
 
+.lista-pensamentos-img{
+  display: flex;
+  margin: 0 auto;
+  margin-top: 32px;
+}
+
 #lista-pensamentos-container p {
   color: var(--Azul-Dark, #041832);
   font-family: "Poppins", sans-serif;
@@ -317,9 +323,17 @@ h2, h3 {
   margin-left: 8px;
 }
 
+.botao-salvar {
+  margin-top: 32px;
+}
+
+.botao-salvar:hover {
+  background: var(--Azul-Dark, #041832);
+}
+
 span {
   width: 180px;
   height: 1px;
   background: #041832;
-  margin: 96px 0 48px 0;
+  margin: 96px 0 16px 0;
 }

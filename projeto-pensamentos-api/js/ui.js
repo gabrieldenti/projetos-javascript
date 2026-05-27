@@ -3,6 +3,12 @@ import api from './api.js';
 const ui = {
     async renderizarPensamentos(pensamentosFiltrados = null){
         const listaPensamentos = document.getElementById('lista-pensamentos');
+        const muralVazio = document.getElementById('mural-vazio');
+
+        if(muralVazio){
+            muralVazio.remove();
+        }
+        
         listaPensamentos.innerHTML = '';
 
         try{
@@ -96,26 +102,32 @@ const ui = {
 
         const sectionMural = document.getElementById('lista-pensamentos-container');
         const formulario = document.getElementById('form-container');
+        const botaoAdicionar = document.getElementById('botao-salvar');
+        const muralVazio = document.getElementById('mural-vazio');
+
+        if(muralVazio){
+            muralVazio.remove();
+        }
+      
+        botaoAdicionar.onclick = () => {
+            formulario.style.display = 'block';
+        }
         
+        const elementoMuralVazio = document.createElement('div');
+        elementoMuralVazio.setAttribute('id', 'mural-vazio');
 
-        formulario.style.display = 'none';
-
-        const botaoAdicionar = document.createElement('button');
-        botaoAdicionar.textContent = 'Adicionar pensamentos';
-
-        
         const p = document.createElement('p');
         p.textContent = 'Nada por aqui ainda, que tal compartilhar alguma ideia?';
-        p.setAttribute('id', 'lista-pensamentos-container');
+        p.classList.add('mural-vazio-texto');
 
         const img = document.createElement('img');
         img.src = 'assets/imagens/lista-vazia.png';
         img.alt = 'Lista vazia';
-        img.setAttribute('id', 'lista-pensamentos-container');
+        img.classList.add('lista-pensamentos-img');
 
-        sectionMural.appendChild(p);
-        sectionMural.appendChild(img);
-        return sectionMural;
+        elementoMuralVazio.appendChild(p);
+        elementoMuralVazio.appendChild(img);
+        sectionMural.appendChild(elementoMuralVazio);
 
     }
 }
