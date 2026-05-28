@@ -200,6 +200,18 @@ h2, h3 {
   padding-top: 16px;
 } 
 
+#botao-adicionar {
+  background: var(--Azul-Dark, #041832);
+  color: var(--Baby-blue, #DBE4EF);
+  padding: 8px 32px;
+  border-radius: 32px;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
 #botao-salvar, #botao-cancelar {
   padding: 8px 32px;
   border-radius: 32px;
@@ -323,7 +335,7 @@ h2, h3 {
   margin-left: 8px;
 }
 
-.botao-salvar {
+.botao-adicionar {
   margin-top: 32px;
 }
 

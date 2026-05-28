@@ -2,83 +2,133 @@
   "pensamentos": [
     {
       "id": "2a56",
+      "favorito": false,
       "conteudo": "Vc faz TI? Conserta meu celular! Não",
-      "autoria": "Grupo da família"
-    },
-    {
-      "id": "4c7d",
-      "conteudo": "Da vida reclama, mas sem ela não vive!",
-      "autoria": "Mestre Yoda"
+      "autoria": "Grupo da família",
+      "data": "2026-01-12T14:32:00.000Z"
     },
     {
       "id": "5b8a",
       "conteudo": "Na minha máquina funciona!",
-      "autoria": "Dev"
+      "autoria": "Dev",
+      "data": "2026-02-20T00:00:00.000Z"
     },
     {
       "id": "68uy",
-      "conteudo": "Esse é de laranja que parece de limão, mas tem gosto de tamarindo!",
-      "autoria": "Chaves"
+      "conteudo": "aaaaa",
+      "autoria": "aaaaa",
+      "data": "2026-05-28T03:00:00.000Z"
     },
     {
       "id": "b807",
+      "favorito": false,
       "conteudo": "Melhor professor, o fracasso é!",
-      "autoria": "Mestre Yoda"
+      "autoria": "Mestre Yoda",
+      "data": "2026-03-14T18:27:00.000Z"
     },
     {
       "id": "9f3c",
+      "favorito": false,
       "conteudo": "Você não é todo mundo!",
-      "autoria": "Mãe"
+      "autoria": "Mãe",
+      "data": "2026-03-20T07:50:00.000Z"
     },
     {
       "id": "6a2b",
+      "favorito": false,
       "conteudo": "Foi sem querer querendo!",
-      "autoria": "Chaves"
+      "autoria": "Chaves",
+      "data": "2026-04-02T13:11:00.000Z"
     },
     {
       "id": "7e2a",
+      "favorito": false,
       "conteudo": "Que a força esteja com você!",
-      "autoria": "Mestre Yoda"
+      "autoria": "Mestre Yoda",
+      "data": "2026-04-16T21:09:00.000Z"
     },
     {
       "id": "5c8f",
+      "favorito": false,
       "conteudo": "Resolver o bug não consegue? Esfriar a cabeça vc deve.",
-      "autoria": "Mestre Yoda"
+      "autoria": "Mestre Yoda",
+      "data": "2026-04-25T16:44:00.000Z"
     },
     {
       "id": "2d6e",
+      "favorito": false,
       "conteudo": "Não faça drama, faça café! :)",
-      "autoria": "Dev"
+      "autoria": "Dev",
+      "data": "2026-05-03T08:22:00.000Z"
     },
     {
       "id": "3f1a",
+      "favorito": false,
       "conteudo": "Conserta minha impressora?",
-      "autoria": "Grupo da família"
+      "autoria": "Grupo da família",
+      "data": "2026-05-10T19:36:00.000Z"
     },
     {
       "id": "8b4c",
+      "favorito": false,
       "conteudo": "A vingança nunca é plena... mata a alma e a envenena...",
-      "autoria": "Seu Madruga"
+      "autoria": "Seu Madruga",
+      "data": "2026-05-18T10:58:00.000Z"
     },
     {
       "id": "4d2e",
+      "favorito": false,
       "conteudo": "Se eu for aí e achar, eu esfrego na sua cara!",
-      "autoria": "Mãe"
+      "autoria": "Mãe",
+      "data": "2026-05-24T15:47:00.000Z"
     },
     {
-      "conteudo": "Teste",
-      "autoria": "teste",
-      "id": "yOI2Hro"
+      "conteudo": "          asddas",
+      "autoria": "dasddads",
+      "data": "2026-05-28T00:00:00.000Z",
+      "id": "CEtLZTs"
     },
     {
-      "conteudo": "Teste",
-      "autoria": "teste",
-      "id": "Mvm4x5M"
+      "conteudo": "          asdads",
+      "autoria": "dasd",
+      "data": "2026-06-28T00:00:00.000Z",
+      "id": "XK2CfB0"
     },
     {
-      "conteudo": "Teste",
-      "autoria": "teste",
-      "id": "1XRQUTJ"
+      "conteudo": "          dasada",
+      "autoria": "dasdadd",
+      "data": "2026-05-27T00:00:00.000Z",
+      "id": "xJLMwAJ"
+    },
+    {
+      "conteudo": "          aaaaaaaaa",
+      "autoria": "aaaaaaaaaaaaa",
+      "data": "2026-05-03T00:00:00.000Z",
+      "id": "PfD2iAA"
+    },
+    {
+      "conteudo": "          DASDSA",
+      "autoria": "DADAS",
+      "data": "2026-05-28T00:00:00.000Z",
+      "id": "oh1uhYw"
+    },
+    {
+      "conteudo": "          ola",
+      "autoria": "ola",
+      "data": "2026-05-28T03:00:00.000Z",
+      "id": "bA54BPU"
+    },
+    {
+      "conteudo": "          LEO",
+      "autoria": "LEO",
+      "data": "2026-05-28T03:00:00.000Z",
+      "id": "aDfKfyM"
+    },
+    {
+      "conteudo": "          cu",
+      "autoria": "cu",
+      "data": "2026-05-28T00:00:00.000Z",
+      "id": "EPt2AEP"
     }
   ]
 }
