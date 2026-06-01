@@ -58,8 +58,11 @@ const ui = {
         const dataWeek = pensamento.data.toLocaleDateString('pt-BR', { weekday: 'long' });
         const dataFormadata = pensamento.data.toLocaleDateString('pt-BR', {day: '2-digit', month: 'long' , year: 'numeric'});
         const dataFinal = `${dataWeek}, ${dataFormadata}`;
+
+        const dataComRegex = dataFinal.replace(/^(\w)/, (match) => match.toUpperCase())
+        .replace(/de (\w)/, (match, letra) => `de ${letra.toUpperCase()}`); // Expressão regular para encontrar a primeira letra da string e convertê-la para maiúscula, garantindo que o nome do dia da semana seja exibido corretamente, mesmo que o método toLocaleDateString retorne a primeira letra em minúscula.
         pensamentoData.classList.add('pensamento-data');
-        pensamentoData.textContent = dataFinal;
+        pensamentoData.textContent = dataComRegex;
 
         const btEditar = document.createElement('button');
         btEditar.classList.add('botao-editar');

@@ -11,13 +11,7 @@
       "id": "5b8a",
       "conteudo": "Na minha máquina funciona!",
       "autoria": "Dev",
-      "data": "2026-02-20T00:00:00.000Z"
-    },
-    {
-      "id": "68uy",
-      "conteudo": "aaaaa",
-      "autoria": "aaaaa",
-      "data": "2026-05-28T03:00:00.000Z"
+      "data": "2026-02-20T03:00:00.000Z"
     },
     {
       "id": "b807",
@@ -28,10 +22,9 @@
     },
     {
       "id": "9f3c",
-      "favorito": false,
       "conteudo": "Você não é todo mundo!",
       "autoria": "Mãe",
-      "data": "2026-03-20T07:50:00.000Z"
+      "data": "2026-03-20T03:00:00.000Z"
     },
     {
       "id": "6a2b",
@@ -81,54 +74,6 @@
       "conteudo": "Se eu for aí e achar, eu esfrego na sua cara!",
       "autoria": "Mãe",
       "data": "2026-05-24T15:47:00.000Z"
-    },
-    {
-      "conteudo": "          asddas",
-      "autoria": "dasddads",
-      "data": "2026-05-28T00:00:00.000Z",
-      "id": "CEtLZTs"
-    },
-    {
-      "conteudo": "          asdads",
-      "autoria": "dasd",
-      "data": "2026-06-28T00:00:00.000Z",
-      "id": "XK2CfB0"
-    },
-    {
-      "conteudo": "          dasada",
-      "autoria": "dasdadd",
-      "data": "2026-05-27T00:00:00.000Z",
-      "id": "xJLMwAJ"
-    },
-    {
-      "conteudo": "          aaaaaaaaa",
-      "autoria": "aaaaaaaaaaaaa",
-      "data": "2026-05-03T00:00:00.000Z",
-      "id": "PfD2iAA"
-    },
-    {
-      "conteudo": "          DASDSA",
-      "autoria": "DADAS",
-      "data": "2026-05-28T00:00:00.000Z",
-      "id": "oh1uhYw"
-    },
-    {
-      "conteudo": "          ola",
-      "autoria": "ola",
-      "data": "2026-05-28T03:00:00.000Z",
-      "id": "bA54BPU"
-    },
-    {
-      "conteudo": "          LEO",
-      "autoria": "LEO",
-      "data": "2026-05-28T03:00:00.000Z",
-      "id": "aDfKfyM"
-    },
-    {
-      "conteudo": "          cu",
-      "autoria": "cu",
-      "data": "2026-05-28T00:00:00.000Z",
-      "id": "EPt2AEP"
     }
   ]
 }

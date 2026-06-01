@@ -1,8 +1,39 @@
 import ui from './ui.js';
 import api from './api.js';
 
+const pensamentosSet = new Set();
+
+async function adicionarChaveAoPensamento(){
+
+    try{
+        const pensamentos = await api.buscarPensamentos();
+        pensamentos.forEach(pensamento => {
+            const chavePensamento = `${pensamento.conteudo.trim().toLowerCase()}-${pensamento.autoria.trim().toLowerCase()}`;
+            pensamentosSet.add(chavePensamento);
+        });
+    }catch(error){
+        console.error(error.message);
+    }
+}
+
+const regexConteudo = /^[\p{L}\s.,!?]{10,}$/u
+const regexAutor = /^[\p{L}\s.,!?]{3,10}$/u
+
+function removerEspacos(string){
+    return string.replaceAll(/\s+/g, '');
+}
+
+function validarConteudo(conteudo){
+    return regexConteudo.test(conteudo);
+}
+
+function validarAutor(autoria){
+    return regexAutor.test(autoria);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     ui.renderizarPensamentos();
+    adicionarChaveAoPensamento();
 
     const formContainer = document.getElementById('form-container');
     const formulario = document.getElementById('pensamento-form');
@@ -35,12 +66,48 @@ async function submissaoFormulario(evento){
     const data = document.getElementById('pensamento-data').value;
     const dataElemento = document.getElementById('pensamento-data');
 
+    const conteudoSemEspacos = removerEspacos(conteudo);
+    const autoriaSemEspacos = removerEspacos(autoria);
+
+    if(!validarConteudo(conteudoSemEspacos)){
+        alert('O conteúdo do pensamento deve conter pelo menos 10 caracteres e não pode conter números. Por favor, revise o conteúdo e tente novamente.');
+        return;
+    }
+
+    if(!validarAutor(autoriaSemEspacos)){
+        alert('O nome do autor deve conter entre 3 e 10 caracteres e não pode conter números. Por favor, revise o nome do autor e tente novamente.');
+        return;
+    }
+
     if(!validarData(data)){
         alert('A data informada é inválida. Por favor, insira uma data igual ou anterior à data atual.');
         dataElemento.focus();
         dataElemento.value = '';
         return;
     }
+
+    const chavePensamento = `${conteudo.trim().toLowerCase()}-${autoria.trim().toLowerCase()}`;
+    console.log(chavePensamento);
+
+    if (id) {
+        const pensamentoOriginal = await api.buscarPensamentoPorId(id);
+
+        const chaveOriginal =
+        `${pensamentoOriginal.conteudo.trim().toLowerCase()}-${pensamentoOriginal.autoria.trim().toLowerCase()}`;
+
+        if(
+            chavePensamento !== chaveOriginal &&
+            pensamentosSet.has(chavePensamento)) {
+            alert('Este pensamento já foi adicionado.');
+            return;
+        }
+    } else{
+        if (pensamentosSet.has(chavePensamento)) {
+            alert('Este pensamento já foi adicionado.');
+            return;
+        }
+    }
+
     try{
         if(id){
             await api.editarPensamento({id , conteudo, autoria, data});
