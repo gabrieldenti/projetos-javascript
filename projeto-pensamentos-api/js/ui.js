@@ -33,6 +33,10 @@ const ui = {
     adicionarPensamento(pensamento){  
 
         const listaPensamentos = document.getElementById('lista-pensamentos');
+        const formContainer = document.getElementById('form-container');
+        const botaoAdicionar = document.getElementById('botao-adicionar');
+
+
         const liPensamento = document.createElement('li');
         liPensamento.setAttribute('data-id', pensamento.id);
         liPensamento.classList.add('li-pensamento');
@@ -50,9 +54,23 @@ const ui = {
         pensamentoAutoria.classList.add('pensamento-autoria');
         pensamentoAutoria.textContent = pensamento.autoria;
 
+        const pensamentoData = document.createElement('div');
+        const dataWeek = pensamento.data.toLocaleDateString('pt-BR', { weekday: 'long' });
+        const dataFormadata = pensamento.data.toLocaleDateString('pt-BR', {day: '2-digit', month: 'long' , year: 'numeric'});
+        const dataFinal = `${dataWeek}, ${dataFormadata}`;
+
+        const dataComRegex = dataFinal.replace(/^(\w)/, (match) => match.toUpperCase())
+        .replace(/de (\w)/, (match, letra) => `de ${letra.toUpperCase()}`); // Expressão regular para encontrar a primeira letra da string e convertê-la para maiúscula, garantindo que o nome do dia da semana seja exibido corretamente, mesmo que o método toLocaleDateString retorne a primeira letra em minúscula.
+        pensamentoData.classList.add('pensamento-data');
+        pensamentoData.textContent = dataComRegex;
+
         const btEditar = document.createElement('button');
         btEditar.classList.add('botao-editar');
-        btEditar.onclick = () => ui.preencherFormulario(pensamento);
+        btEditar.onclick = () => {
+            botaoAdicionar.style.display = 'none';
+            formContainer.style.display = 'block';
+            ui.preencherFormulario(pensamento); 
+        };
 
         const iconeEditar = document.createElement('img');
         iconeEditar.src = 'assets/imagens/icone-editar.png';
@@ -70,6 +88,23 @@ const ui = {
             }
         };
 
+        const botaoFavorito = document.createElement('button');
+        botaoFavorito.classList.add('botao-favorito');
+
+        const iconeFavorito = document.createElement('img');
+        iconeFavorito.src = pensamento.favorito ? 'assets/imagens/icone-favorito.png' : 'assets/imagens/icone-favorito_outline.png';
+        iconeFavorito.alt = 'Ícone favorito';
+        botaoFavorito.appendChild(iconeFavorito);
+
+        botaoFavorito.onclick = async () => {
+            try{
+                await api.atualizarFavotito(pensamento.id, !pensamento.favorito);
+                ui.renderizarPensamentos();
+            }catch(error){
+                console.error(error.message);
+            }
+        };
+
         const iconeExcluir = document.createElement('img');
         iconeExcluir.src = 'assets/imagens/icone-excluir.png';
         iconeExcluir.alt = 'Ícone excluir';
@@ -77,12 +112,14 @@ const ui = {
 
         const icones = document.createElement('div');
         icones.classList.add('icones');
+        icones.appendChild(botaoFavorito);
         icones.appendChild(btEditar);
         icones.appendChild(btExcluir);
 
         liPensamento.appendChild(imgAspas);
         liPensamento.appendChild(pensamentoConteudo);
         liPensamento.appendChild(pensamentoAutoria);
+        liPensamento.appendChild(pensamentoData);
         liPensamento.appendChild(icones);
 
         listaPensamentos.appendChild(liPensamento);
@@ -94,6 +131,8 @@ const ui = {
         document.getElementById('pensamento-id').value = pensameneto.id;
         document.getElementById('pensamento-conteudo').value = pensameneto.conteudo;
         document.getElementById('pensamento-autoria').value = pensameneto.autoria;
+        document.getElementById('pensamento-data').value = pensameneto.data.toISOString().split('T')[0];
+        document.getElementById('form-container').scrollIntoView(); // Rola a página para o formulário, garantindo que ele esteja visível para o usuário quando for preenchido com os dados do pensamento selecionado para edição.
         document.getElementById('botao-salvar').textContent = 'Salvar alterações';
         
     },
@@ -102,7 +141,7 @@ const ui = {
 
         const sectionMural = document.getElementById('lista-pensamentos-container');
         const formulario = document.getElementById('form-container');
-        const botaoAdicionar = document.getElementById('botao-salvar');
+        const botaoAdicionar = document.getElementById('botao-adicionar');
         const muralVazio = document.getElementById('mural-vazio');
 
         if(muralVazio){

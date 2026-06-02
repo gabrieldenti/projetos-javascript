@@ -1,22 +1,33 @@
 const URL_BASE = 'http://localhost:3001';
 //biblioteca axios axios.post e resposta.data
+
+function formatarData(data) {
+    const [ano, mes, dia] = data.split('-');
+    return new Date(ano, mes - 1, dia);
+}
+
 const api = {
     async buscarPensamentos(){
         try{
             const resposta = await fetch(`${URL_BASE}/pensamentos`); //Fetch por padrão usa get
-            return resposta.json();
+            const respostaData =  await resposta.json();
+            
+            return respostaData.map(pensamento => {
+                return {...pensamento, data: new Date(pensamento.data)};
+            });
         }catch(error){
             console.log(error.message);
         }
     },
      async salvarPensamento(pensamento){
         try{
+            const data = formatarData(pensamento.data);
             const resposta = await fetch(`${URL_BASE}/pensamentos`, {
                 method: 'POST', // Especifica o método HTTP como POST para indicar que estamos enviando dados para criar um novo recurso.
                 headers: {
                     "Content-Type": "application/json" // Define o cabeçalho Content-Type como application/json para informar ao servidor que o corpo da requisição contém dados no formato JSON.
                 },
-                body: JSON.stringify(pensamento) // Converte o objeto pensamento em uma string JSON para ser enviada no corpo da requisição.
+                body: JSON.stringify({...pensamento, data: data.toISOString()}) // Converte o objeto pensamento em uma string JSON para ser enviada no corpo da requisição.
             });
             return resposta.json();
         }catch(error){
@@ -26,19 +37,22 @@ const api = {
     async buscarPensamentoPorId(id){
         try{
             const resposta = await fetch(`${URL_BASE}/pensamentos/${id}`); 
-            return resposta.json();
+            const respostaData = await resposta.json();
+            return {...respostaData, data: new Date(respostaData.data)};
+
         }catch(error){
             console.log(error.message);
         }
     },
-    async editarPensamento(pensamento){
+    async editarPensamento(pensamento){ // PUT é usado para atualizar o dado por completo e PATCH para atualizar parcialmente, ou seja, apenas um campo específico do dado.
         try{
+            const data = formatarData(pensamento.data);
             const resposta = await fetch(`${URL_BASE}/pensamentos/${pensamento.id}`, {
                 method: 'PUT', // Especifica o método HTTP como PUT para indicar que estamos enviando dados para atualizar um recurso existente.
                 headers: {
                     "Content-Type": "application/json" // Define o cabeçalho Content-Type como application/json para informar ao servidor que o corpo da requisição contém dados no formato JSON.
                 },
-                body: JSON.stringify(pensamento) // Converte o objeto pensamento em uma string JSON para ser enviada no corpo da requisição.
+                body: JSON.stringify({...pensamento, data}) // Converte o objeto pensamento em uma string JSON para ser enviada no corpo da requisição.
             });
             return resposta.json();
         }catch(error){
@@ -64,6 +78,21 @@ const api = {
             });
 
             return pensamentosFiltrados;
+        }catch(error){
+            console.log(error.message);
+        }
+    },
+    async atualizarFavotito(id, favorito){
+        try{
+            const resposta = await fetch(`${URL_BASE}/pensamentos/${id}`, {
+                method: 'PATCH', // Especifica o método HTTP como PATCH para indicar que estamos enviando dados para atualizar parcialmente um recurso existente.
+                headers: {
+                    "Content-Type": "application/json" // Define o cabeçalho Content-Type como application/json para informar ao servidor que o corpo da requisição contém dados no formato JSON.
+                },
+                body: JSON.stringify({favorito}) // Converte um objeto contendo a propriedade favorito em uma string JSON para ser enviada no corpo da requisição.
+            });
+
+            return resposta.json();
         }catch(error){
             console.log(error.message);
         }

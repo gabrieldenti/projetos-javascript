@@ -27,7 +27,7 @@
       <div class="overlay"></div>
       <div class="overlay overlay-color"></div>
       <h2>Adicione um pensamento novo:</h2>
-      <button id="botao-salvar" class="botao-salvar">Adicionar Pensamento</button>
+      <button id="botao-adicionar" class="botao-adicionar">Adicionar Pensamento</button>
       <section id="form-container">
         <form id="pensamento-form">
           <input type="hidden" id="pensamento-id" />
@@ -46,6 +46,11 @@
             id="pensamento-autoria" 
             placeholder="Insira a autoria ou fonte" 
             required />
+            <label for="pensamento-data">Data</label>
+              <input 
+                type="date" 
+                id="pensamento-data"
+                required />
           <div class="form-botoes">
             <button 
               type="submit" 
