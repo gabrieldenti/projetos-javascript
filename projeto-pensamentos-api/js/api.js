@@ -1,5 +1,5 @@
 const URL_BASE = 'http://localhost:3001';
-
+//biblioteca axios axios.post e resposta.data
 const api = {
     async buscarPensamentos(){
         try{
