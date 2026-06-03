@@ -1,0 +1,11 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "start": "json-server --watch videos.json --port 3001"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
