@@ -1,0 +1,22 @@
+{
+  "name": "projeto-fokus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script-crud.js",
+  "scripts": {
+    "test": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrieldenti/projetos-javascript.git"
+  },
+  "author": "Gabriel Denti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrieldenti/projetos-javascript/issues"
+  },
+  "homepage": "https://github.com/gabrieldenti/projetos-javascript#readme",
+  "dependencies": {
+    "typescript": "^6.0.3"
+  }
+}
