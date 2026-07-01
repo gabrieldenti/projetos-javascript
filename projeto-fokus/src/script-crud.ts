@@ -112,8 +112,6 @@ function atualizarUI() {
   );
   const btnRemoverTodas =
     document.querySelector<HTMLButtonElement>("#btn-remover-todas");
-  const iconeEditar =
-    document.querySelector<HTMLButtonElement>(".app_button-edit")!;
 
   btnAdicionarTarefa!.onclick = () => {
     formAdicionarTarefa?.classList.toggle("hidden");
@@ -203,11 +201,13 @@ function atualizarUI() {
     li.append(botao);
 
     li.addEventListener("click", () => {
+      console.log(estado);
       estado = selecionarTarefa(estado, tarefa);
       atualizarUI();
     });
 
-    iconeEditar?.onclick = () =>{
+    botao!.onclick = (evento) =>{
+      evento.stopPropagation();
       estado = editarTarefa(estado, tarefa)
       atualizarUI();
     }
@@ -215,5 +215,12 @@ function atualizarUI() {
     ulTarefas?.appendChild(li);
   });
 }
+
+document.addEventListener("FocoFinalizado", () => {
+  if(estado.tarefaSelecionada){
+    estado.tarefaSelecionada.concluida = true;
+    atualizarUI();
+  }
+});
 
 atualizarUI();
